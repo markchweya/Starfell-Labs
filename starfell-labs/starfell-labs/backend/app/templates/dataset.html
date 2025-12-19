@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>{{ ds.title }} — Starfell Labs</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <header class="top">
+    <a href="/" class="muted">← Back</a>
+    <h1>{{ ds.title }}</h1>
+    <p class="muted">{{ ds.description }}</p>
+
+    <div class="tags">
+      {% for t in ds.tags %}
+        <span class="tag">{{ t }}</span>
+      {% endfor %}
+    </div>
+
+    <div class="actions">
+      <a class="btn" href="/datasets/{{ ds.id }}/download/{{ latest.version }}">
+        Download (v{{ latest.version }})
+      </a>
+    </div>
+  </header>
+
+  <section class="panel">
+    <h2>Columns</h2>
+    <div class="chips">
+      {% for c in columns %}
+        <span class="chip">{{ c }}</span>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>Sample rows</h2>
+    <pre class="code">{{ sample | tojson(indent=2) }}</pre>
+  </section>
+</body>
+</html>
