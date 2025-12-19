@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.pyc
+backend/starfell.db
+backend/datasets_storage/*
+!backend/datasets_storage/.gitkeep
